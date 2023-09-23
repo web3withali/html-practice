@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculatar</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        width: 100%;
+        height: 100vh;
+        display: grid;
+        place-items: center;
+    }
+    .calculator{
+       margin: auto;
+       padding: 20px;
+       background-color: #f2f2f2;
+       box-shadow: 0px opx 5px #888888; 
+       width: 240px;
+    }
+    .display{
+      margin-bottom: 10px;  
+    }
+    input[typ="text"]{
+        width: 100%;
+        height: 40px;
+        font-size:20px;
+        text-align: right;
+        padding-right: 5px;
+        border:none;
+        background-color: #fff;
+    }
+    .button{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 5px;
+    }
+    button{
+        height: 42px;
+        font-size: 20px;
+        background-color: #ebe3e3;
+        border: none;
+        cursor: pointer;
+    }
+    button:hover{
+      background-color: #cbecf1 ;  
+    }
+    .bg{
+        background-color: green;
+    }
+    .AC{
+        background-color: red;
+    }
+    .DEL{
+        background-color:red ;
+    }
+    .SE{
+        background-color: red;
+    }
+    .EQ{
+        background-color: red;
+    }
+    .NE{
+        background-color:yellow ;
+    }
+    .FO{
+        background-color: red;
+    }
+    .ET{
+        background-color: red;
+    }
+    .JE{
+   background-color: yellow;
+    }
+    .FI{
+        background-color:yellow ;
+    }
+    .ONE{
+        background-color: yellow;
+    }
+    .MT{
+        background-color: yellow;
+    }
+    .SS{
+        background-color: yellow;
+    }
+    .TW{
+        background-color: yellow;
+    }
+    .ZZ{
+        background-color: yellow;
+    }
+    .MI{
+        background-color: green;
+    }
+  .TR{
+    background-color: green;
+  }
+   .ZO{
+    background-color: green;
+   }
+
+   .PL{
+    background-color: green;
+   }
+   .TT{
+    background-color: green;
+   }
+
+</style>
+<body>
+<div class="calculator">
+    <div class="display">
+     <input type="text" id="result" disabled>   
+    </div>
+    <div class="button">
+        <button class="AC" onclick="clearResult()">AC</button>
+        <button class="DEL" onclick="deleteResult()">DEL</button>
+        <button class="EQ" onclick="insertValue('%')">%</button>
+        <button class="JE" onclick="insertValue('/')">/</button>
+        <button class="SE" onclick="insertValue('7')">7</button>
+        <button class="ET" onclick="insertValue('8')">8</button>
+        <button class="NE" onclick="insertValue('9')">9</button>
+        <button class="MT" onclick="insertValue('*')">*</button>
+        <button class="FO" onclick="insertValue('4')">4</button>
+        <button class="FI" onclick="insertValue('5')">5</button>
+        <button class="SS" onclick="insertValue('6')">6</button>
+        <button class="MI" onclick="insertValue('-')">-</button>
+        <button class="ONE" onclick="insertValue('1')">1</button>
+        <button class="TW" onclick="insertValue('2')">2</button>
+        <button class="TR" onclick="insertValue('3')">3</button>
+        <button class="PL" onclick="insertValue('+')">+</button>
+        <button class="ZZ" onclick="insertValue('00')">00</button>
+        <button class="ZO" onclick="insertValue('0')">0</button>
+        <button class="TT" onclick="insertValue('.')">.</button>
+        <button class="bg" onclick="calculate()">=</button>
+    </div>
+</div>
+
+<script>
+  let Result = document.getElementById('result');
+
+   function insertValue(value){
+    Result.value += value;
+   }
+  function clearResult(){
+    Result.value = '';
+  }
+  function deleteResult(){
+    Result.value = Result.value.slice(0, -1);
+  }
+  function calculate(){
+    try{
+        Result.value = eval(Result.value);
+
+    }
+    catch(error){
+        Result.value = "error";
+    }
+  }
+   
+</script>
+</body>
+</html>
